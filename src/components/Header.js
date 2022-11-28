@@ -85,9 +85,11 @@ const Header = ({ active, setActive, user, handleLogout }) => {
                           }}
                         />
                       </div>
+                      {/* <Link to="/userProfile"> */}
                       <p style={{ marginTop: "12px", marginLeft: "5px" }}>
                         {user?.displayName}
                       </p>
+                      {/* </Link> */}
                       <li className="nav-item nav-link" onClick={handleLogout}>
                         Logout
                       </li>

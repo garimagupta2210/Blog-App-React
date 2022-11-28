@@ -73,7 +73,7 @@ const Detail = ({ setActive, user }) => {
     setBlog(blogDetail.data());
     const relatedBlogsQuery = query(
       blogRef,
-      where("tags", "array-contains", blogDetail.data().tags, limit(3))
+      where("title", "array-contains", blogDetail.data().title, limit(3))
     );
     setComments(blogDetail.data().comments ? blogDetail.data().comments : []);
     setLikes(blogDetail.data().likes ? blogDetail.data().likes : []);

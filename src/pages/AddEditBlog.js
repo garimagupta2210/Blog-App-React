@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 
 const initialState = {
   title: "",
-  // tags: [],
+  tags: [],
   trending: "no",
   category: "",
   description: "",
@@ -42,7 +42,7 @@ const AddEditBlog = ({ user, setActive }) => {
 
   const navigate = useNavigate();
 
-  const { title, category, trending, description } = form;
+  const { title, tags, category, trending, description } = form;
 
   useEffect(() => {
     const uploadFile = () => {
@@ -99,9 +99,9 @@ const AddEditBlog = ({ user, setActive }) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // const handleTags = (tags) => {
-  //   setForm({ ...form, tags });
-  // };
+  const handleTags = (tags) => {
+    setForm({ ...form, tags });
+  };
 
   const handleTrending = (e) => {
     setForm({ ...form, trending: e.target.value });
@@ -167,13 +167,13 @@ const AddEditBlog = ({ user, setActive }) => {
                   onChange={handleChange}
                 />
               </div>
-              {/* <div className="col-12 py-3">
+              <div className="col-12 py-3">
                 <ReactTagInput
                   tags={tags}
                   placeholder="Tags"
                   onChange={handleTags}
                 />
-              </div> */}
+              </div>
               <div className="col-12 py-3">
                 <p className="trending">Is it trending blog ?</p>
                 <div className="form-check-inline mx-2">

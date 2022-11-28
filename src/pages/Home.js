@@ -88,7 +88,7 @@ const Home = ({ setActive, user, active }) => {
 
   const getBlogs = async () => {
     const blogRef = collection(db, "blogs");
-    console.log(blogRef);
+    // console.log(blogRef);
     const firstFour = query(blogRef, orderBy("title"), limit(4));
     const docSnapshot = await getDocs(firstFour);
     setBlogs(docSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
@@ -131,7 +131,7 @@ const Home = ({ setActive, user, active }) => {
     const searchTitleQuery = query(blogRef, where("title", "==", searchQuery));
     const searchTagQuery = query(
       blogRef,
-      where("tags", "array-contains", searchQuery)
+      where("title", "array-contains", searchQuery)
     );
     const titleSnapshot = await getDocs(searchTitleQuery);
     const tagSnapshot = await getDocs(searchTagQuery);
