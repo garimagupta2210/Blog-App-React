@@ -15,7 +15,7 @@ import BlogSection from "../components/BlogSection";
 import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 import { toast } from "react-toastify";
-import Tags from "../components/Tags";
+// import Tags from "../components/Tags";
 import FeatureBlogs from "../components/FeatureBlogs";
 import Trending from "../components/Trending";
 import Search from "../components/Search";
@@ -60,7 +60,7 @@ const Home = ({ setActive, user, active }) => {
         let list = [];
         let tags = [];
         snapshot.docs.forEach((doc) => {
-          tags.push(...doc.get("tags"));
+          // tags.push(...doc.get("tags"));
           list.push({ id: doc.id, ...doc.data() });
         });
         const uniqueTags = [...new Set(tags)];

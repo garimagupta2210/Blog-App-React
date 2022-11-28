@@ -67,7 +67,7 @@ const Detail = ({ setActive, user }) => {
     const blogDetail = await getDoc(docRef);
     const blogs = await getDocs(blogRef);
     let tags = [];
-    blogs.docs.map((doc) => tags.push(...doc.get("tags")));
+    // blogs.docs.map((doc) => tags.push(...doc.get("tags")));
     let uniqueTags = [...new Set(tags)];
     setTags(uniqueTags);
     setBlog(blogDetail.data());
@@ -125,7 +125,6 @@ const Detail = ({ setActive, user }) => {
     }
   };
 
-  console.log("relatedBlogs", relatedBlogs);
   return (
     <div className="single">
       <div
@@ -148,9 +147,9 @@ const Detail = ({ setActive, user }) => {
                 <Like handleLike={handleLike} likes={likes} userId={userId} />
               </span>
               <p className="text-start">{blog?.description}</p>
-              <div className="text-start">
+              {/* <div className="text-start">
                 <Tags tags={blog?.tags} />
-              </div>
+              </div> */}
               <br />
               <div className="custombox">
                 <div className="scroll">
